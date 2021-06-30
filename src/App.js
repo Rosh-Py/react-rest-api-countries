@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { Countries, CountryDetails } from "./components";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useGlobalContext } from "./globalContext";
+import { apiEndpoint } from "./config";
+import axios from "axios";
 
 function App() {
+  // Fetching all countries on load starts
+  const { setAllCountries } = useGlobalContext();
+  let countries;
+  const fetchAllCountries = async (url) => {
+    const response = await axios({ url });
+    countries = response.data;
+    setAllCountries(countries);
+    console.log("All countries fetched");
+  };
+
+  useEffect(() => {
+    fetchAllCountries(`${apiEndpoint}/all`);
+  }, [apiEndpoint]);
+  // Fetching all countries on load ends
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Countries />
+          </Route>
+          <Route exact path="/:country">
+            <CountryDetails />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
