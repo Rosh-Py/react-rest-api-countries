@@ -11,6 +11,9 @@ function CountryDetails() {
   const [details, setDetails] = useState(false);
   const { filteredCountries, allCountries } = useGlobalContext();
 
+  // Scroll to top
+  window.scrollTo(0, 0);
+
   const countryDetails = () => {
     let country;
     country = allCountries.find((c) => c.name === pathName);
@@ -152,7 +155,8 @@ const Wrapper = styled.div`
     font-size: 0.85rem;
   }
   .btn {
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
     box-shadow: var(--dark-shadow);
     border-radius: var(--radius);
     background: var(--bgc-2);
@@ -162,6 +166,7 @@ const Wrapper = styled.div`
     }
     :hover {
       transform: scale(1.1);
+      color: var(--clr-text-1);
     }
   }
   .main {
@@ -173,6 +178,7 @@ const Wrapper = styled.div`
     display: grid;
     margin-top: 2rem;
     row-gap: 1rem;
+    margin-bottom: 2rem;
   }
   .border-countries {
     display: flex;
@@ -187,13 +193,15 @@ const Wrapper = styled.div`
     object-fit: cover;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 990px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 3rem;
-    align-items: center;
+    align-items: flex-start;
     .flag {
-      height: 30rem;
+      height: 22rem;
+      width: 80%;
+      box-shadow: var(--light-shadow);
     }
     .heading {
       font-size: 1.75rem;
@@ -201,6 +209,9 @@ const Wrapper = styled.div`
     .main {
       display: flex;
       justify-content: space-between;
+    }
+    .main-1 {
+      margin-right: 2rem;
     }
     .borders {
       display: grid;
@@ -210,6 +221,9 @@ const Wrapper = styled.div`
     .text {
       font-size: 1rem;
       margin-left: 0.5rem;
+    }
+    .details {
+      margin-top: 3rem;
     }
   }
 `;
