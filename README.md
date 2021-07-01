@@ -1,1 +1,5 @@
-## COUNTRIES DETAIL WEBSITE WITH DARK MODE THEME SWITCH
+## Countries detail website with mobile first design with dark-mode option
+
+### Skills used
+* React
+* Rest API
