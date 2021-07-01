@@ -69,7 +69,7 @@ function CountryDetails() {
     // console.log("country", country);
   };
 
-  useEffect(countryDetails, [filteredCountries, pathName]);
+  useEffect(countryDetails, [filteredCountries, pathName, allCountries]);
   const history = useHistory();
   return (
     <div className="section-center">
