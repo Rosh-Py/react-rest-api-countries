@@ -13,7 +13,7 @@ function CountryDetails() {
 
   const countryDetails = () => {
     let country;
-    country = filteredCountries.find((c) => c.name === pathName);
+    country = allCountries.find((c) => c.name === pathName);
     if (country) {
       let {
         name,
