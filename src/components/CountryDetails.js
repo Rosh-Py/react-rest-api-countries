@@ -3,14 +3,13 @@ import { useLocation, Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
-import { apiEndpoint } from "../config";
 import { useGlobalContext } from "../globalContext";
 
 function CountryDetails() {
   const route = useLocation();
   const pathName = route.pathname.slice(1);
   const [details, setDetails] = useState(false);
-  const { filteredCountries } = useGlobalContext();
+  const { filteredCountries, allCountries } = useGlobalContext();
 
   const countryDetails = () => {
     let country;
@@ -32,7 +31,7 @@ function CountryDetails() {
 
       // extract border country names starts
       const borderCountries = borders.map((alpha3) => {
-        const countryName = filteredCountries.find(
+        const countryName = allCountries.find(
           (country) => country.alpha3Code === alpha3
         );
         return countryName.name;

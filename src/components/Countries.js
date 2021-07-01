@@ -1,14 +1,11 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { CountryCard, SearchFilter, RegionFilter } from ".";
-import { apiEndpoint } from "../config";
 import { useGlobalContext } from "../globalContext";
 
 function Countries() {
   const {
-    setAllCountries,
     allCountries,
     filteredCountries,
     updateFilteredCountries,
@@ -36,18 +33,7 @@ function Countries() {
 
     updateFilteredCountries(updatedResult);
   }, [searchValue, filterValue, allCountries]);
-  // Filtering logic starts
-
-  // const fetchAllCountries = async (endpoint) => {
-  //   const response = await axios({ url: `${endpoint}/all` });
-  //   countries = response.data;
-  //   setAllCountries(countries);
-  //   console.log("All countries fetched");
-  // };
-
-  // useEffect(() => {
-  //   fetchAllCountries(apiEndpoint);
-  // }, [apiEndpoint]);
+  // Filtering logic ends
 
   return (
     <>

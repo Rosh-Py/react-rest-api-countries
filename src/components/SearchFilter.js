@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import styled from "styled-components";
 import { useGlobalContext } from "../globalContext";
@@ -12,11 +12,6 @@ function SearchFilter() {
   } = useGlobalContext();
 
   const [search, setSearch] = useState(searchValue);
-
-  // Update filteredCountries
-  // useEffect(() => {
-  //   updateSearchValue(search);
-  // }, [search]);
 
   return (
     <Wrapper>
