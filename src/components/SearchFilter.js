@@ -27,8 +27,8 @@ function SearchFilter() {
           placeholder="Search for a country..."
           value={search || searchValue}
           onChange={(e) => {
-            setSearch(e.target.value);
-            updateSearchValue(e.target.value);
+            setSearch(e.target.value); //Controlled input
+            updateSearchValue(e.target.value); //Updating search value in global context
           }}
         />
       </div>
@@ -59,6 +59,7 @@ const Wrapper = styled.div`
     border-style: none;
     color: var(--clr-text-2);
     width: 90%;
+    letter-spacing: var(--spacing);
   }
   .search-bar input::placeholder {
     color: var(--clr-text-2);

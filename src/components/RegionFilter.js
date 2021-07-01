@@ -55,8 +55,9 @@ function RegionFilter() {
 }
 
 const Wrapper = styled.div`
-  width: 170px;
+  width: 190px;
   position: relative;
+  letter-spacing: var(--spacing);
   .select {
     background: var(--bgc-2);
     padding: 1rem;
@@ -72,8 +73,8 @@ const Wrapper = styled.div`
   }
   .select p {
     color: var(--clr-text-2);
-    opacity: 0.6;
     font-size: 0.875rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
   }
@@ -89,7 +90,7 @@ const Wrapper = styled.div`
     transition: var(--transition);
     position: absolute;
     height: 180px;
-    width: 180px;
+    width: 190px;
     overflow: auto;
     box-shadow: var(--light-shadow);
     border: none;
@@ -98,6 +99,7 @@ const Wrapper = styled.div`
     padding: 0.25rem 0 0.25rem 1rem;
     transition: var(--transition);
     font-size: 0.8rem;
+    font-weight: 600;
     border: none;
   }
   .option:hover {

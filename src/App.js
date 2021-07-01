@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Countries, CountryDetails } from "./components";
+import { Countries, CountryDetails, Header } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useGlobalContext } from "./globalContext";
 import { apiEndpoint } from "./config";
@@ -23,6 +23,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <Router>
         <Switch>
           <Route exact path="/">

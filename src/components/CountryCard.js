@@ -36,6 +36,10 @@ const Wrapper = styled.article`
   box-shadow: var(--dark-shadow);
   border-radius: var(--radius);
   overflow: hidden;
+  transition: var(--transition);
+  :hover {
+    transform: scale(1.05);
+  }
   .flag-img {
     height: 160px;
     width: 100%;

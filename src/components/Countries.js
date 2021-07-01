@@ -16,6 +16,7 @@ function Countries() {
     filterValue,
   } = useGlobalContext();
 
+  // Filtering logic starts
   useEffect(() => {
     let updatedResult = [...allCountries];
     if (searchValue) {
@@ -35,6 +36,7 @@ function Countries() {
 
     updateFilteredCountries(updatedResult);
   }, [searchValue, filterValue, allCountries]);
+  // Filtering logic starts
 
   // const fetchAllCountries = async (endpoint) => {
   //   const response = await axios({ url: `${endpoint}/all` });

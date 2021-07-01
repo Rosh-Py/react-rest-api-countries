@@ -5,6 +5,7 @@
 :root {
   --transition: all 0.3s linear;
   --radius: 0.5rem;
+  --spacing: 0.1rem;
 }
 .light-theme {
   --bgc-1: hsl(0, 0%, 98%);
