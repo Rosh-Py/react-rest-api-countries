@@ -8,6 +8,7 @@ const initialState = {
   filteredCountries: [],
   filterValue: "None",
   searchValue: "",
+  isLoading: false,
 };
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -26,6 +27,10 @@ export const GlobalProvider = ({ children }) => {
   const updateFilterValue = (value) => {
     dispatch({ type: "UPDATE_FILTER_VALUE", payload: value });
   };
+
+  const setIsLoading = (value) => {
+    dispatch({ type: "SET_IS_LOADING", payload: value });
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -34,6 +39,7 @@ export const GlobalProvider = ({ children }) => {
         updateFilteredCountries,
         updateSearchValue,
         updateFilterValue,
+        setIsLoading,
       }}
     >
       {children}

@@ -4,6 +4,7 @@ import SearchFilter from "./SearchFilter";
 import RegionFilter from "./RegionFilter";
 import CountryDetails from "./CountryDetails";
 import Header from "./Header";
+import Loading from "./Loading";
 
 export {
   CountryCard,
@@ -12,4 +13,5 @@ export {
   RegionFilter,
   CountryDetails,
   Header,
+  Loading,
 };

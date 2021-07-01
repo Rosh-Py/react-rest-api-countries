@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Countries, CountryDetails, Header } from "./components";
+import { Countries, CountryDetails, Header, Loading } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useGlobalContext } from "./globalContext";
 import { apiEndpoint } from "./config";
@@ -7,7 +7,7 @@ import axios from "axios";
 
 function App() {
   // Fetching all countries on load starts
-  const { setAllCountries } = useGlobalContext();
+  const { setAllCountries, setIsLoading } = useGlobalContext();
 
   const savedDarkTheme =
     localStorage.getItem("darkTheme") === "true" ? true : false;
@@ -19,10 +19,11 @@ function App() {
 
   let countries;
   const fetchAllCountries = async (url) => {
+    setIsLoading(true);
     const response = await axios({ url });
     countries = response.data;
     setAllCountries(countries);
-    console.log("All countries fetched");
+    setIsLoading(false);
   };
 
   useEffect(() => {

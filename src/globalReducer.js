@@ -21,6 +21,9 @@ const global_reducer = (state, action) => {
   if (action.type === "UPDATE_FILTER_VALUE") {
     return { ...state, filterValue: action.payload };
   }
+  if (action.type === "SET_IS_LOADING") {
+    return { ...state, isLoading: action.payload };
+  }
   throw new Error(`${action.type} action not found in global reducer`);
 };
 

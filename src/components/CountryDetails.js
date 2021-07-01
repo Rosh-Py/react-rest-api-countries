@@ -4,16 +4,16 @@ import styled from "styled-components";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { v4 as uuidv4 } from "uuid";
 import { useGlobalContext } from "../globalContext";
+import { Loading } from ".";
 
 function CountryDetails() {
   const route = useLocation();
   const pathName = route.pathname.slice(1);
   const [details, setDetails] = useState(false);
-  const { filteredCountries, allCountries } = useGlobalContext();
+  const { filteredCountries, allCountries, isLoading } = useGlobalContext();
 
   // Scroll to top
   window.scrollTo(0, 0);
-
   const countryDetails = () => {
     let country;
     country = allCountries.find((c) => c.name === pathName);
@@ -74,6 +74,10 @@ function CountryDetails() {
 
   useEffect(countryDetails, [filteredCountries, pathName, allCountries]);
   const history = useHistory();
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div className="section-center">
       <TopWrapper>
@@ -148,7 +152,7 @@ const Wrapper = styled.div`
   display: grid;
   row-gap: 2rem;
   .flag {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
   }
   .text {
@@ -193,7 +197,14 @@ const Wrapper = styled.div`
     object-fit: cover;
   }
 
-  @media screen and (min-width: 990px) {
+  @media screen and (min-width: 768px) {
+    display: grid;
+    .main {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  @media screen and (min-width: 1170px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 3rem;

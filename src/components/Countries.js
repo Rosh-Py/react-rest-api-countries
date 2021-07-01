@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { v4 as uuidv4 } from "uuid";
-import { CountryCard, SearchFilter, RegionFilter } from ".";
+import { CountryCard, SearchFilter, RegionFilter, Loading } from ".";
 import { useGlobalContext } from "../globalContext";
-
 function Countries() {
   const {
     allCountries,
@@ -11,6 +10,7 @@ function Countries() {
     updateFilteredCountries,
     searchValue,
     filterValue,
+    isLoading,
   } = useGlobalContext();
 
   // Filtering logic starts
@@ -34,6 +34,9 @@ function Countries() {
     updateFilteredCountries(updatedResult);
   }, [searchValue, filterValue, allCountries]);
   // Filtering logic ends
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>
