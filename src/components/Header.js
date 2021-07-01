@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { FaMoon } from "react-icons/fa";
+import { FaRegMoon } from "react-icons/fa";
 
 function Header() {
   const isLocalThemeDark =
@@ -21,9 +22,11 @@ function Header() {
   return (
     <Wrapper>
       <div className="section-center">
-        <h3 className="heading">Where in the world?</h3>
+        <Link to="/">
+          <h3 className="heading">Where in the world?</h3>
+        </Link>
         <span className="dark-mode" onClick={toggleDarkTheme}>
-          <FaMoon className="moon-icon" /> <p>Dark Mode</p>
+          <FaRegMoon className="moon-icon" /> <p>Dark Mode</p>
         </span>
       </div>
     </Wrapper>
@@ -54,14 +57,16 @@ const Wrapper = styled.header`
     align-items: center;
     cursor: pointer;
     color: var(--clr-text-1);
+    font-weight: 800;
   }
   .moon-icon {
     margin-right: 0.75rem;
     font-size: 0.875rem;
+    transform: rotateZ(-30deg);
   }
   @media screen and (min-width: 990px) {
     .section-center {
-      padding: 1.5rem 6.8rem;
+      padding: 1.5rem 2rem;
     }
     .heading {
       font-size: 1.3rem;

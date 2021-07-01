@@ -23,8 +23,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
       <Router>
+        <Header />
         <Switch>
           <Route exact path="/">
             <Countries />

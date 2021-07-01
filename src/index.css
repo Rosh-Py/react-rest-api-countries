@@ -21,8 +21,8 @@
   --bgc-2: hsl(209, 23%, 22%);
   --clr-text-1: hsl(0, 0%, 100%);
   --clr-text-2: hsl(0, 0%, 98%);
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --light-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Global Css */
@@ -111,7 +111,7 @@ h5 {
 
 /* Global classes */
 .heading {
-  color: var(--clr-text-2);
+  color: var(--clr-text-1);
   /* margin-bottom: 0.25rem;
   margin-top: 0.25rem; */
 }
